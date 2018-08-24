@@ -1,0 +1,40 @@
+{%extends "mystore/base.html"%}
+{%block body_block%}
+{%load staticfiles%}
+
+<div class="container"></div>
+<h1>INFO YOUR CART</h1>
+<table class="table">
+    <thead class="danger">
+        <th>Sản Phẩm</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Số Lượng</th>
+        <th>Đơn Giá (VND)</th>
+        <th>Thành Tiền (VND)</th>
+        <th>Xóa</th>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+            <tr class="success">
+                <td>
+                    <a href="{% url 'mystore:product_detail' item.product.pk %}"><img src="{{item.product.image.url}}"></a>
+                </td>
+                <td>{{item.product.name}}</td>
+
+                <td>
+                    <form action="{% url 'cart:cart_add' item.product.pk %}" method="POST">
+                        {{item.update_quantity_form.quantity}}
+                        {{item.update_quantity_form.update}}
+                        <input type="submit" value="Cập Nhật"/>
+                        {% csrf_token %}
+                    </form>
+                </td>
+                <td>{{item.fee}}</td>
+                <td>{{item.total_fee}}</td>
+    <td><a href="{% url 'cart:cart_remove' item.product.pk %}">Xóa</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

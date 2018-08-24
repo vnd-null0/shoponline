@@ -1,0 +1,37 @@
+{%extends "mystore/base.html"%}
+{%block body_block%}
+{%load staticfiles%}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PRODUCT DETAIL</title>
+</head>
+<body>
+
+<div class="row text-center">
+    {%if product%}
+    <div class="container">
+        <div class="card">
+            <img class="img-responsive" src="{{product.image.url}}" atl="{{product.name}}" width="350" height="350"/>
+            <div class="card-body">
+                <h4 class="card-title">{{product.name}}</h4>
+                <p class="card-text">{{product.description}}<br/>{{product.fee}} VND</p>
+            </div>
+            <div>
+                <form action="{% url 'cart:cart_add' product.pk %}" method="POST">
+                    {{cart_product_form}}
+                    {% csrf_token %}
+                    <div class="card-footer">
+                        <input type="submit" value="Add to cart" class="btn btn-primaty">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {%endif%}
+</div>
+{%endblock%}
+</body>
+</html>
