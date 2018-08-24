@@ -37,7 +37,14 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'cart:cart_detail' %}" style="background-image: url({% static "images/cart.jpg" %})">Cart</a>
-              
+            </li>
+            <li class="cart">
+              {% if cart %}
+                <a class="nav-link" href="{% url 'cart:cart_detail'%}">
+                  Giỏ hàng có {{cart|length}} sản phẩm , VNĐ: {{cart.get_total_fee}}</a>
+              {% else %}
+                  Giỏ hàng đang trống
+              {% endif %}
             </li>
           </ul>
         </div>
