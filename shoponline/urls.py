@@ -24,6 +24,7 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cart/',include('cart.urls')),
-    url(r'^$',views.index,name='index'),
+    url(r'^$',views.index, name='index'),
     url(r'mystore/',include('mystore.urls')),
+    url(r'^orders/', include('orders.urls', namespace='orders')),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

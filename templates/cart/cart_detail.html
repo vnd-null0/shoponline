@@ -34,7 +34,14 @@
     <td><a href="{% url 'cart:cart_remove' item.product.pk %}">Xóa</a></td>
             </tr>
         {% endfor %}
+            <tr class="total">
+                <td colspan="4"></td>
+                <td class="num">Tổng: {{cart.get_total_fee}} VND</td>
+            </tr>
     </tbody>
 </table>
-
+<p class="text-right">
+    <a href="{% url 'mystore:index' %}" class="button light">Tiếp tục mua hàng</a>
+    <a href="{% url 'orders:order_create' %}" class="btn btn-primary">Thanh Toán</a>
+</p>
 {% endblock %}

@@ -65,3 +65,7 @@ class Cart(object):
         get total fee of product
         """
         return sum((int(item['fee']))*int(item['quantity']) for item in self.cart.values())
+
+    def clear(self):
+        self.cart = {}
+        self.save()
