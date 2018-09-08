@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "mystore/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+    <div class="container">
+        <h3>Thống kê giá các sản phẩm</h3>
+        <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto">
+            <script>
+                Highcharts.chart('container', {{ chart|safe }})
+            </script>
+        </div>
+
+    </div>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="card-footer">
+                <input type="submit" value="Export Excel" class="btn btn-primary">
+            </div>
+        </form>
+        {% if result %}
+          <h4 style="color: blue;">{{result}}</h4>
+        {% endif %}
+    </div>
+{% endblock body_block %}

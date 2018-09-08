@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "mystore/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+  <div class="container">
+      {% load staticfiles %}
+      <h2>Đọc RSS</h2>
+      {% if feeds %}
+        <ul>
+            {% for web in feeds.entries  %}
+              <li><a href="{{web.link}}">{{web.title}}</a></li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+  </div>
+{% endblock body_block %}

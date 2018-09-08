@@ -14,9 +14,14 @@ body {
     }
 }
 
-header{
-    background: url(../images/banner.jpg) no-repeat left top 100%;
+/*header{
+  background: url(../images/banner.jpg) no-repeat left top 100%;
     }
+*/
+
+.main-header {
+    text-align: center;
+  }
 
 .card {
     height: 100%;

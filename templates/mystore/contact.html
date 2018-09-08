@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% extends "mystore/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+  
+        <!-- Main Container -->
+
+        <div class="container-fluid-kamn">
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-1">
+                        <h4>Address:</h4>
+                        <p class="block-author">S3C SNEAKER STORE</p>
+                        <p>48b Thạch Thị Thanh, Tân Định, Q1.</p>
+                        <p>Phone: 0903.150.443</p>
+                        <p>Giờ làm việc: T2-T7: 11h-21h (CN: 13h-20h)</p>
+                        <em class="block-author">Email: hi@s3csneaker.com</em> <br>
+                        <br>
+                        <p class="lead">Social Link</p><hr>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <a href="#"><img src="{% static 'assets/img/social-icons/btn_skype.png'%}" alt="Skype"></a>
+                            Call us
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <a href="https://www.facebook.com/nhatduy.vo"><img src="{% static 'assets/img/social-icons/btn_facebook.png'%}" alt="Facebook"></a>
+                            Like us
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
+                            <a href="#"><img src="{% static 'assets/img/social-icons/btn_twitter.png'%}" alt="Twitter"></a>
+                            Follow us
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
+                            <a href="https://www.instagram.com/_nhatduy_/"><img src="{% static 'assets/img/social-icons/btn_instagram.png'%}" alt="Instagram"></a>
+                            Follow me
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="feedback-form">
+              
+                            <div id="contact-response"></div>
+    
+                            {% if registered %}
+                            <h3>Cảm ơn các bạn đã gửi ý kiến/ thông tin liên hệ</h3>
+                            {% else %}    
+    
+                            <form method="post" id="contact-form">
+                            <table>
+                                {% csrf_token %}
+                                {% for field in contact_form %}
+                                    <tr><td>
+                                        <div class="form-group form-group-fullname">
+                                            <label class="control-label" for="fullname">{{field.label}}</label>
+                                        </div>
+                                    </td>
+                                <td>
+                                    <div>
+                                        {{field}}
+                                    </div>
+                                </td></tr>
+                                {% endfor %}
+                                <tr><td colspan="2" align="center">
+                                    <input type="submit" class="btn btn-primary" value="Gửi liên hệ">
+                                </td></tr>
+                            </table>
+                            </form>
+                            {% endif %}
+                        </div> 
+                    </div>
+                </div>
+            </div>    
+                
+        <!--End Main Container -->
+
+{% endblock body_block %}

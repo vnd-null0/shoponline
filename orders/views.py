@@ -21,7 +21,7 @@ def order_create(request):
                 OrderItem.objects.create(order = order, product = item['product'], price = item['fee'], quantity = item['quantity'])
             
             #send email
-            body_email = "Cám ơn bạn! Đơn hàng của bạn đã được đặt thành công" + str(order.id)
+            body_email = "Cám ơn bạn! Đơn hàng của bạn đã được đặt thành công, mã đơn hàng là " + str(order.id)
             email = EmailMessage(subject='Thông tin đặt hàng', body=body_email, to=[order.email], from_email='discovery.info1993@gmail.com')
             email.send()
             #remove giỏ hàng

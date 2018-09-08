@@ -26,4 +26,8 @@ urlpatterns = [
     #url(r'admin/', admin.site.urls),
     url(r'^$',views.index, name='index'),
     url(r'^product_detail/(\d+)/$', views.product_detail, name='product_detail'),
+    url(r'^chart/$', views.draw_chart, name='draw_chart'),
+    url(r'^readrss/$', views.read_rss, name='readrss'),
+    url(r'^about_us/$', views.about_us, name='about_us'),
+    url(r'^contact/$', views.contact, name='contact'),
 ]
