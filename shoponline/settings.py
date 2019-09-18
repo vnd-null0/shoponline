@@ -124,7 +124,7 @@ USE_TZ = True
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'discovery.info1993@gmail.com'
-EMAIL_HOST_PASSWORD = 'yuDtahN@2091993'
+EMAIL_HOST_PASSWORD = 'xxx'
 EMAIL_PORT = 587
 
 # Static files (CSS, JavaScript, Images)
